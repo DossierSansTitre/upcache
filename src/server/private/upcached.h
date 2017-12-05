@@ -1,15 +1,13 @@
 #ifndef INCLUDED_PRIVATE_UPCACHED_H
 #define INCLUDED_PRIVATE_UPCACHED_H
 
-#include <ev.h>
+#include <uv.h>
 
 struct upcached_server_
 {
-    struct ev_loop* event_loop;
-    int socket;
-    int socket6;
-    ev_io socket_watcher;
-    ev_io socket_watcher6;
+    uv_loop_t event_loop;
+    uv_tcp_t socket;
+    uv_tcp_t socket6;
 };
 
 typedef struct upcached_server_ upcached_server;
